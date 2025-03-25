@@ -3,7 +3,7 @@ import loginClient from "../../support/clients/loginClient";
 
 describe('Testes de login - ', () => {
 
- it.only('Realizar login de usuário com sucesso', () => {
+ it('Realizar login de usuário com sucesso', () => {
     let dataUser = getUserLoginValid();
     loginClient.login(dataUser.email, dataUser.password)
         .then((response) => {
