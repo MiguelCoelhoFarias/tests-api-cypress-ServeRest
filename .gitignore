@@ -1,0 +1,21 @@
+.DS_Store
+node_modules
+/build
+/.svelte-kit
+/package
+.env.*
+*.db
+*.db-journal
+
+# cypress
+cypress/downloads
+cypress/screenshots
+cypress/videos
+cypress/reports
+cypress/snapshots/**/diffs
+cypress/reports/junit/*
+cucumber-messages.ndjson
+cucumber-report.html
+
+#variaveis de ambiente
+cypress.env.json
