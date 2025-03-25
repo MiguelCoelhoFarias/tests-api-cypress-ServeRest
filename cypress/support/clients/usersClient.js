@@ -11,4 +11,14 @@ class usersClient {
     }
 
 
+    createUser(nome, email, password, administrador) {
+        return cy.request({
+            method: "POST",
+            url: baseUrlUsers,
+            body: {nome, email, password, administrador},
+            failOnStatusCode: false
+        })
+    }
+
+
 }export default new usersClient();
