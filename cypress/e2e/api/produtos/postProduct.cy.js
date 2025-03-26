@@ -27,6 +27,7 @@ describe('Testes de criacao de produtos', () => {
             expect(response.status).to.be.equal(201)
             expect(response.body).to.not.null
             expect(response.body).to.have.property('message', 'Cadastro realizado com sucesso')
+            expect(response.duration).lessThan(3000)
         })
     });
 

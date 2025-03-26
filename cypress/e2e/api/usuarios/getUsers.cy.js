@@ -20,6 +20,7 @@ it('Listar todos os usuários com sucesso', () => {
         .then((response) => {
             expect(response.status).to.equal(200)
             expect(response.body).not.null
+            expect(response.duration).lessThan(3000)
             
         })
     })

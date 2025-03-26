@@ -40,6 +40,7 @@ describe('Testes de editar produto', () => {
             expect(response.status).to.be.equal(200)
             expect(response.body).to.be.not.null
             expect(response.body).to.have.property('message', 'Registro alterado com sucesso')
+            expect(response.duration).lessThan(3000)
         })
         productClient.deleteProduct(productId, authorization)
     });
