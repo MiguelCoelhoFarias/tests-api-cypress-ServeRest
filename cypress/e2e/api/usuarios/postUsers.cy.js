@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
-import { userValid } from "../../fixtures/factory/userFactory";
-import usersClient from "../../support/clients/usersClient";
+import { userValid } from "../../../fixtures/factory/userFactory";
+import usersClient from "../../../support/clients/usersClient";
 
 describe('Testes de criar usuario', () => {
 
@@ -12,7 +12,9 @@ describe('Testes de criar usuario', () => {
                 expect(response.body).not.null
                 expect(response.body).to.have.property('message', 'Cadastro realizado com sucesso')
                 expect(response.duration).lessThan(3000)
+                usersClient.deleteUser(response.body._id);
             })
+            
 
     });
 

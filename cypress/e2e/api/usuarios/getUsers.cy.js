@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
-import { createdUser, userValid } from "../../fixtures/factory/userFactory";
-import usersClient from "../../support/clients/usersClient";
+import { createdUser, userValid } from "../../../fixtures/factory/userFactory";
+import usersClient from "../../../support/clients/usersClient";
 
 
 describe('Testes de obter usuarios', () => {
