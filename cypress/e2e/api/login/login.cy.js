@@ -1,17 +1,25 @@
-import { getUserLoginInvalid, getUserLoginValid } from "../../fixtures/factory/userFactory";
-import loginClient from "../../support/clients/loginClient";
+import { getUserLoginInvalid, getUserLoginValid, userValid } from "../../../fixtures/factory/userFactory";
+import loginClient from "../../../support/clients/loginClient";
+import usersClient from "../../../support/clients/usersClient";
 
 describe('Testes de login - ', () => {
 
- it.only('Realizar login de usuário com sucesso', () => {
+ it('Realizar login de usuário com sucesso', () => {
+    let newUser = userValid();
+    usersClient.createUser(newUser.nome, newUser.email, newUser.password, newUser.administrador, newUser.password)
     let dataUser = getUserLoginValid();
-    loginClient.login(dataUser.email, dataUser.password)
+    loginClient.login(newUser.email, newUser.password)
         .then((response) => {
             cy.log(response.body)
             expect(response.status).to.equal(200);
             expect(response.body).not.null;
             expect(response.body).to.have.property('message', 'Login realizado com sucesso')
         });
+    usersClient.getUserByName(newUser.nome)
+    .then((response) =>{
+        let userResponseId = response.body.usuarios[0]._id
+        usersClient.deleteUser(userResponseId);
+    })
  })
 
  it('Deve falhar ao tentar realizar login com dados invalidos', () => {
