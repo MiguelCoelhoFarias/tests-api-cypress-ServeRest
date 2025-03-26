@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
-import { createdUser, userValid } from "../../fixtures/factory/userFactory";
-import usersClient from "../../support/clients/usersClient";
+import { createdUser, userValid } from "../../../fixtures/factory/userFactory";
+import usersClient from "../../../support/clients/usersClient";
 
 
 describe('Testes de obter usuarios', () => {
@@ -20,7 +20,6 @@ it('Listar todos os usuários com sucesso', () => {
         .then((response) => {
             expect(response.status).to.equal(200)
             expect(response.body).not.null
-            cy.log(response.body)
             
         })
     })
@@ -68,12 +67,11 @@ it('Listar usuario por cargo', () => {
         .then((response) => {
             expect(response.status).to.equal(200)
             expect(response.body).not.null
-            cy.log(JSON.stringify(response.body))
         })
 });
 
 afterEach(() => {
-    
+    usersClient.deleteUser(userResponseId)
 })
 
 });

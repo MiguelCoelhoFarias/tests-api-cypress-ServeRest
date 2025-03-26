@@ -24,3 +24,8 @@ export function userValid() {
         administrador: "true"
     }
 }
+
+
+export function invalidId() {
+    return faker.database.mongodbObjectId()
+}

@@ -1,5 +1,5 @@
-import { getUserLoginInvalid, getUserLoginValid } from "../../fixtures/factory/userFactory";
-import loginClient from "../../support/clients/loginClient";
+import { getUserLoginInvalid, getUserLoginValid } from "../../../fixtures/factory/userFactory";
+import loginClient from "../../../support/clients/loginClient";
 
 describe('Testes de login - ', () => {
 
