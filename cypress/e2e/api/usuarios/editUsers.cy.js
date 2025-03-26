@@ -23,6 +23,7 @@ describe('Testes de editar usuario', () => {
                 expect(response.status).to.equal(200)
                 expect(response.body).to.not.null
                 expect(response.body).to.have.property('message', 'Registro alterado com sucesso')
+                expect(response.duration).lessThan(3000)
             })
             usersClient.deleteUser(userResponseId)
         });
