@@ -71,5 +71,15 @@ class usersClient {
         })
     }
 
+    editUser(idUser, nome, email, password, administrador) {
+        return cy.request({
+            method: "PUT",
+            url: `${baseUrlUsers}/${idUser}`,
+            body: {nome, email, password, administrador},
+            failOnStatusCode: false
+        })
+    }
+
+
 
 }export default new usersClient();
