@@ -10,15 +10,6 @@ class usersClient {
         })
     }
 
-    createUser(nome, email, password, administrador) {
-        return cy.request({
-            method: "POST",
-            url: baseUrlUsers,
-            body: {nome, email, password, administrador},
-            failOnStatusCode: false
-        })
-    }
-
     getUserById(idUser) {
         return cy.request({
             method: "GET",
@@ -60,6 +51,23 @@ class usersClient {
             url: baseUrlUsers,
             qs:{ administrador },
             failOnStatusCode: false 
+        })
+    }
+
+    createUser(nome, email, password, administrador) {
+        return cy.request({
+            method: "POST",
+            url: baseUrlUsers,
+            body: {nome, email, password, administrador},
+            failOnStatusCode: false
+        })
+    }
+
+    deleteUser(idUser) {
+        return cy.request({
+            method: "DELETE",
+            url: `${baseUrlUsers}/${idUser}`,
+            failOnStatusCode: false
         })
     }
 
