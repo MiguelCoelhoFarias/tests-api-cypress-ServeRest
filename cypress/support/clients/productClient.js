@@ -42,10 +42,10 @@ class productClient {
         })
     }
 
-    editUser(idProduct, nome, preco, descricao, quantidade, authorization) {
+    editProduct(idProduct, nome, preco, descricao, quantidade, authorization) {
         return cy.request({
             method: "PUT",
-            url: `${baseUrlProducts}/${idUser}`,
+            url: `${baseUrlProducts}/${idProduct}`,
             body: {nome, preco, descricao, quantidade},
             headers: {
                 Authorization: authorization
