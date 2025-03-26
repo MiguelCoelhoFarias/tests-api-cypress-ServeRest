@@ -33,6 +33,7 @@ describe('Testes de deletar Produto', () => {
                 expect(response.status).to.be.equal(200)
                 expect(response.body).to.be.not.null
                 expect(response.body).to.have.property('message', 'Registro excluído com sucesso')
+                expect(response.duration).lessThan(3000)
             })
     });
 

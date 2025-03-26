@@ -21,6 +21,7 @@ describe('Testes de deletar usuario', () => {
             expect(response.status).to.equal(200)
             expect(response.body).not.be.null
             expect(response.body).to.have.property('message', 'Registro excluído com sucesso')
+            expect(response.duration).lessThan(3000)
         })
     });
 
